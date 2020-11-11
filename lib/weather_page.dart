@@ -18,6 +18,8 @@ class CityWeatherPage extends StatefulWidget {
 class _CityWeatherPageState extends State<CityWeatherPage> {
   TextEditingController cityController = TextEditingController();
 
+  Size get size => MediaQuery.of(context).size;
+
   final String apiKey = '54b0b79aea00c5f7a8372502556a3962';
   final String apikey2 = '6a9a9481722d47e088000f6cf909c7a2';
   final String units = 'metric';
@@ -178,7 +180,7 @@ class _CityWeatherPageState extends State<CityWeatherPage> {
             ),
             _scrollNextDays(),
             Container(
-              height: 70,
+              height: size.height * 0.10,
               alignment: Alignment.bottomCenter,
               padding: EdgeInsets.all(16),
               child: TextFormField(
@@ -218,7 +220,7 @@ class _CityWeatherPageState extends State<CityWeatherPage> {
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Container(
-              height: 300,
+              height: size.height * 0.50,
               child: Center(
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation(Colors.white),
@@ -372,7 +374,7 @@ class _CityWeatherPageState extends State<CityWeatherPage> {
     return Container(
       padding: EdgeInsets.all(16),
       width: double.infinity,
-      height: 300,
+      height: size.height * 0.50,
       child: Row(
         children: [
           Expanded(
